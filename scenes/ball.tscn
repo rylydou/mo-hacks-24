@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq25hy12jcccw"]
+[gd_scene load_steps=7 format=3 uid="uid://cq25hy12jcccw"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_uipxa"]
 [ext_resource type="Shader" path="res://shaders/ball.gdshader" id="2_e04ev"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jo4gn"]
+rough = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gl2p"]
 radius = 8.0
@@ -13,6 +16,11 @@ shader = ExtResource("2_e04ev")
 size = Vector2(16, 16)
 
 [node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_jo4gn")
+can_sleep = false
+continuous_cd = 2
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_uipxa")
 
 [node name="Collision" type="CollisionShape2D" parent="."]

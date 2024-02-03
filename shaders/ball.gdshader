@@ -7,6 +7,6 @@ float circle(vec2 position, float radius, float feather) {
 
 
 void fragment() {
-	COLOR.rgb=vec3(1.0);
-	COLOR.a *= circle(vec2(.5, .5), 1., .1);
+	float feather = fwidth(UV).x;
+	COLOR.a *= 1.0 - circle(UV, .5 - feather, feather);
 }
