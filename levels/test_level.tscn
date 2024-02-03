@@ -312,6 +312,7 @@ polygon = PackedVector2Array(-286.044, -161.945, -316.128, -242.055, -134.001, -
 [node name="Block" parent="." instance=ExtResource("8_tct07")]
 position = Vector2(103, 21)
 scale = Vector2(15.945, 1)
+metadata/pond = true
 
 [node name="Pin" parent="." instance=ExtResource("9_t85tf")]
 position = Vector2(-71, 14)

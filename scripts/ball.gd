@@ -5,6 +5,8 @@ class_name Ball extends RigidBody2D
 @export var mass_factor := 1.0
 @export var snow_grow_factor := 9.0
 @onready var snow_grow_rate := 1.0 / pow(2, snow_grow_factor)
+@export var pond_shrink_factor := 8.0
+@onready var pond_shrink_rate := 1.0 / pow(2, pond_shrink_factor)
 
 
 @onready var collision: CollisionShape2D = %'Collision'
@@ -13,8 +15,15 @@ class_name Ball extends RigidBody2D
 
 
 func _physics_process(delta: float) -> void:
-	var is_on_surface = clamp(get_contact_count(), 0, 1)
-	radius += snow_grow_rate * linear_velocity.length() * is_on_surface
+	for body in get_colliding_bodies():
+		if body.has_meta('snow'):
+			radius += snow_grow_rate * linear_velocity.length()
+		if body.has_meta('pond'):
+			radius -= pond_shrink_factor * delta
+	
+	if radius < 4:
+		queue_free()
+		return
 	set_radius(radius)
 
 

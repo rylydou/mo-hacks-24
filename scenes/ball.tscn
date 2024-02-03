@@ -19,10 +19,11 @@ size = Vector2(16, 16)
 physics_material_override = SubResource("PhysicsMaterial_jo4gn")
 can_sleep = false
 continuous_cd = 2
-max_contacts_reported = 1
+max_contacts_reported = 16
 contact_monitor = true
 script = ExtResource("1_uipxa")
 mass_factor = 0.031
+pond_shrink_factor = 9.0
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
