@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://x3y0budgumnt"]
+[gd_scene load_steps=10 format=3 uid="uid://x3y0budgumnt"]
 
 [ext_resource type="Script" path="res://scripts/moveable.gd" id="1_f88ah"]
 
@@ -53,6 +53,9 @@ gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 alpha_curve = SubResource("CurveTexture_tso5v")
 
+[sub_resource type="PrismMesh" id="PrismMesh_k6yw4"]
+size = Vector3(8, 8, 1)
+
 [node name="Vent" type="StaticBody2D"]
 input_pickable = true
 
@@ -84,6 +87,11 @@ position = Vector2(8, 0)
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_jr88a")
 preprocess = 124.7
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(8, 0)
+rotation = -1.5708
+mesh = SubResource("PrismMesh_k6yw4")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

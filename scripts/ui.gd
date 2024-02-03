@@ -5,9 +5,10 @@ var level_index = 0
 var levels: PackedStringArray = [
 	'res://levels/level0.tscn',
 	'res://levels/level1.tscn',
-	'res://levels/level2.tscn',
 	'res://levels/level3.tscn',
+	'res://levels/test_level.tscn',
 	'res://levels/level4.tscn',
+	'res://levels/level5.tscn',
 ]
 
 
@@ -22,6 +23,9 @@ func next() -> void:
 	if level_index >= levels.size(): return
 	var level := levels[level_index]
 	get_tree().change_scene_to_file(level)
+	get_tree().paused = false
+	await get_tree().process_frame
+	get_tree().paused = true
 
 
 func _process(delta: float) -> void:
