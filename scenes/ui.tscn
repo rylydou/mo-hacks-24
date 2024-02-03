@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://w2ci5q7y31k7"]
+[gd_scene load_steps=3 format=3 uid="uid://w2ci5q7y31k7"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_1i7ar"]
+[ext_resource type="Texture2D" uid="uid://dl6i8a8r2vgd7" path="res://content/background.png" id="2_mey2a"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -28,18 +29,35 @@ alignment = 2
 [node name="Play Button" type="Button" parent="UI/Box"]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Play"
 
 [node name="Restart Button" type="Button" parent="UI/Box"]
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Restart"
 
 [node name="Next Button" type="Button" parent="UI/Box"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Next"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.762404, 0.762404, 0.762404, 1)
+z_index = -4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mey2a")
+stretch_mode = 6
 
 [connection signal="pressed" from="UI/Box/Play Button" to="." method="play"]
 [connection signal="pressed" from="UI/Box/Restart Button" to="." method="restart"]

@@ -12,7 +12,6 @@ var move_offset: Vector2
 func _ready() -> void:
 	object.input_event.connect(_input_event)
 	object.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-	print('set')
 
 
 func _process(delta: float) -> void:

@@ -1,22 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1dvkak12py18"]
+[gd_scene load_steps=8 format=3 uid="uid://d1dvkak12py18"]
 
 [ext_resource type="Script" path="res://scripts/moveable.gd" id="1_2ax31"]
+[ext_resource type="Shader" path="res://shaders/plat.gdshader" id="1_ccm86"]
+[ext_resource type="Texture2D" uid="uid://dgqtaypg00kc1" path="res://content/textures/wood.png" id="2_uh7pu"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_ch8rh"]
-size = Vector2(16, 16)
+[sub_resource type="GDScript" id="GDScript_ooipd"]
+script/source = "extends StaticBody2D
+
+
+func _ready() -> void:
+	if has_meta(&'pond'):
+		$'Mesh'.texture = preload('res://content/textures/pond.png')
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4tlq"]
+size = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ing2x"]
+shader = ExtResource("1_ccm86")
+shader_parameter/texture_scale = 8.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_ch8rh"]
 size = Vector2(16, 16)
 
 [node name="Block" type="StaticBody2D"]
 modulate = Color(0.909804, 0.717647, 0.588235, 1)
 input_pickable = true
-
-[node name="Mesh" type="MeshInstance2D" parent="."]
-mesh = SubResource("QuadMesh_ch8rh")
+script = SubResource("GDScript_ooipd")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m4tlq")
+
+[node name="Mesh" type="MeshInstance2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ing2x")
+mesh = SubResource("QuadMesh_ch8rh")
+texture = ExtResource("2_uh7pu")
 
 [node name="Movable" type="Node" parent="."]
 script = ExtResource("1_2ax31")
