@@ -1,10 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1dvkak12py18"]
+[gd_scene load_steps=4 format=3 uid="uid://d1dvkak12py18"]
 
 [ext_resource type="Script" path="res://scripts/moveable.gd" id="1_2ax31"]
-[ext_resource type="Shader" path="res://shaders/block.gdshader" id="1_oysx7"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_up5a7"]
-shader = ExtResource("1_oysx7")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ch8rh"]
 size = Vector2(16, 16)
@@ -13,10 +9,10 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="Block" type="StaticBody2D"]
+modulate = Color(0.909804, 0.717647, 0.588235, 1)
 input_pickable = true
 
 [node name="Mesh" type="MeshInstance2D" parent="."]
-material = SubResource("ShaderMaterial_up5a7")
 mesh = SubResource("QuadMesh_ch8rh")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
