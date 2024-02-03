@@ -1,11 +1,2 @@
 # Godot 4+ specific ignores
 .godot/
-
-# Godot extentions
-lib/
-
-# Web
-node_modules/
-
-# Misc
-docs/.obsidian/

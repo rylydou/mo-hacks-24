@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq25hy12jcccw"]
+[gd_scene load_steps=6 format=3 uid="uid://cq25hy12jcccw"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_uipxa"]
+[ext_resource type="Shader" path="res://shaders/ball.gdshader" id="2_e04ev"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0gl2p"]
-radius = 16.0
+radius = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm5u3"]
+shader = ExtResource("2_e04ev")
+
+[sub_resource type="QuadMesh" id="QuadMesh_kuwmv"]
+size = Vector2(16, 16)
 
 [node name="Ball" type="RigidBody2D"]
+script = ExtResource("1_uipxa")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_0gl2p")
+
+[node name="Sprite" type="MeshInstance2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_jm5u3")
+mesh = SubResource("QuadMesh_kuwmv")
