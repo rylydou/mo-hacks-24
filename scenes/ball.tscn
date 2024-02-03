@@ -22,6 +22,7 @@ continuous_cd = 2
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_uipxa")
+mass_factor = 0.031
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

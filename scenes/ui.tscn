@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://w2ci5q7y31k7"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_1i7ar"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1i7ar")
+
+[node name="UI" type="Control" parent="."]
+texture_filter = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Box" type="HBoxContainer" parent="UI"]
+layout_mode = 1
+offset_right = 196.0
+offset_bottom = 40.0
+scale = Vector2(0.25, 0.25)
+alignment = 2
+
+[node name="Play Button" type="Button" parent="UI/Box"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Play"
+
+[node name="Restart Button" type="Button" parent="UI/Box"]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Restart"
+
+[node name="Next Button" type="Button" parent="UI/Box"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+text = "Next"
+
+[connection signal="pressed" from="UI/Box/Play Button" to="." method="play"]
+[connection signal="pressed" from="UI/Box/Restart Button" to="." method="restart"]
+[connection signal="pressed" from="UI/Box/Next Button" to="." method="next"]

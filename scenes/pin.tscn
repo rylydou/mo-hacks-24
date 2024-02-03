@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cshgkgy8qwrib"]
+
+[ext_resource type="Script" path="res://scripts/pin.gd" id="1_ceng6"]
+[ext_resource type="Texture2D" uid="uid://cwcpajyvb08jl" path="res://content/pin.png" id="2_qudgw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_je8m4"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1oned"]
+size = Vector2(12, 30)
+
+[node name="Pin" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_je8m4")
+can_sleep = false
+continuous_cd = 2
+script = ExtResource("1_ceng6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("2_qudgw")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_1oned")

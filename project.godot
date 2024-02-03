@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Missouri Hacks"
+run/main_scene="res://levels/test_level.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
+
+[autoload]
+
+UI="*res://scenes/ui.tscn"
 
 [debug]
 
@@ -38,3 +43,4 @@ enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.188235, 0.172549, 0.180392, 1)
