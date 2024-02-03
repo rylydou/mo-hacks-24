@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1dvkak12py18"]
+
+[ext_resource type="Script" path="res://scripts/moveable.gd" id="1_2ax31"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4tlq"]
+size = Vector2(16, 16)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ch8rh"]
+size = Vector2(16, 16)
+
+[node name="Block" type="StaticBody2D"]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m4tlq")
+
+[node name="Mesh" type="MeshInstance2D" parent="."]
+mesh = SubResource("QuadMesh_ch8rh")
+
+[node name="Movable" type="Node" parent="."]
+script = ExtResource("1_2ax31")
