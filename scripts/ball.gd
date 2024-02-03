@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		if body.has_meta('snow'):
 			radius += snow_grow_rate * linear_velocity.length()
 		if body.has_meta('pond'):
-			radius -= air_shrink_rate * delta
+			radius -= pond_shrink_rate * delta
 	
 	if radius < 4:
 		queue_free()
